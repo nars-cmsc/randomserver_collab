@@ -13,10 +13,30 @@ include ('tokencheck.php');
 
 </head>
 <body>
+	<nav class="navbar navbar-inverse">
+		<div class="container-fluid">
+		<div class="navbar-header">
+			<a class="navbar-brand" href="#">WebSiteName</a>
+		</div>
+		<ul class="nav navbar-nav">
+			<li class="active"><a href="home.php">Home</a></li>
+			<li><a href="regcourse.php">Register Additional Class</a></li>
+			<li><a href="addcourse.php">Add Class to Checklist</a></li>
+			<li><a href="viewcourse.php">View List of Courses</a></li>
+			<li><a href="ongoingcourse.php">View List of On-Going Courses</a></li>
+			<li><a href="passedcourse.php">View List of Passed Courses</a></li>
+			<li><a href="failedcourse.php">View List of Failed Coursess</a></li>
+		</ul>
+
+		<ul class="nav navbar-nav mr-auto">
+			<li><a href="logout.php">Log-out</a></li>
+		</ul>
+		</div>
+	</nav>
 	<div class="row">
 		<div class="col-md-4"></div>
 		
-		<div class="col-md-4" id="frm-reg">
+		<div class="col-md-4" id="frm-regcourse">
 			
 			<h1 class="form-header">Register Course to Database</h1>
 			<form name = "regcourse" action = "dbregcourse.php" onsubmit = "return validation()" method = "POST">

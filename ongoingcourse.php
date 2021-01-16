@@ -75,41 +75,34 @@
         <?php } ?>
       </tbody>
     </table>
+    <button class="btn btn-danger" type="submit" name="delete" value="Delete">Delete</button>    
+    <?php
+      if(isset($_POST['delete'])){
+        $num_of_check = count($_POST['check']);
+        $i = 0;
+        if ($num_of_check > 0) {
+          while ($i<$num_of_check) {
+            $key_to_del = $_POST['check'][$i];
+            $delete_query = "DELETE from checklist where COURSE_COUNTER ='$key_to_del'";
+            mysqli_query($con,$delete_query);
+            $i++;
+          }
+        }
+        else{
+          echo '<script>alert("Please select a course to delete")</script>';
+        }
+      }
+    ?>
   </div>
   <div class="col-md-3"></div>
     
 
 <!-- for delete button: need to refresh for delete to take place after clicking button-->
-  <div class="row">
-    <div class="form_group">
-      <input type="submit" name="delete" value="Delete">
-    </div>
-  </div>
-        </form>
-        <?php
-          if(isset($_POST['delete'])){
-            $num_of_check = count($_POST['check']);
-            $i = 0;
-            if ($num_of_check > 0) {
-              while ($i<$num_of_check) {
-                $key_to_del = $_POST['check'][$i];
-                $delete_query = "DELETE from checklist where COURSE_COUNTER ='$key_to_del'";
-                mysqli_query($con,$delete_query);
-                $i++;
-              }
-            }
-            else{
-              echo '<script>alert("Please select a course to delete")</script>';
-            }
-          }
-        ?>
+ 
+    
+    
 
 	</table>
-
-
-
-
-  <br/><br/><a href="home.php">Home</a>
 
 </body>
 </html>	

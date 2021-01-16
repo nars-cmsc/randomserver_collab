@@ -94,7 +94,7 @@ include ('tokencheck.php');
   <div class="row">
     <div class="col-md-3"></div>
     <div class="col-md-6">
-      <h2>List of Courses</h2>
+      <h2 class="form-header">List of Courses</h2>
       <table class="table table-striped main-table" >
         <thead>
           <tr>
