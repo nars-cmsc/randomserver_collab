@@ -1,0 +1,23 @@
+body{
+
+/*
+Please put all css codes here. This is to be used as the styles page for all future html codes.
+*/
+	background: #eee;
+}
+#frm1{
+	border: colid gray 1px;
+	width: 25%;
+	border-radius: 2px;
+	/*
+	margin: 120px auto;
+	background: white;
+	padding: 50px;*/
+}
+#btn{
+	color: #fff;
+	background: #337ab7;
+	padding: 7px;
+	margin-left: 70%;
+}
+
