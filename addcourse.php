@@ -15,7 +15,9 @@ if (!isset($_SESSION['upemail'])) {
 <html>
 <head>
   <title>PHP Add Course to Checklist System</title>
-  <link rel = "stylesheet" type = "text/css" href = "style.css">
+  <link rel="stylesheet" href="..\bootstrap-3.4.1-dist\css\bootstrap.min.css">
+  <link rel="stylesheet" href="..\bootstrap-3.4.1-dist\js\bootstrap.min.js">
+	<link rel = "stylesheet" type = "text/css" href = "main_css.css">
 </head>
 <body>
   <div id = "frm">
@@ -24,7 +26,7 @@ if (!isset($_SESSION['upemail'])) {
       <p>
         <label> Course Number: </label>
         <br>
-      <input type = "text" id = "courseno" name = "courseno">
+      <input placeholder="Course Number" type = "text" id = "courseno" name = "courseno">
       </p>
       <p>
         <label for="termtaken"> Term Taken: </label>

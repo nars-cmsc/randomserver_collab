@@ -8,40 +8,10 @@ include ('tokencheck.php');
 <html>
 <head>
   <title>List of Courses</title>
-  <link rel = "stylesheet" type = "text/css" href = "style.css">
+  <link rel="stylesheet" href="..\bootstrap-3.4.1-dist\css\bootstrap.min.css">
+  <link rel="stylesheet" href="..\bootstrap-3.4.1-dist\js\bootstrap.min.js">
+  <link rel = "stylesheet" type = "text/css" href = "main_css.css">
   <script type="text/javascript" src="jquery-3.5.1.js"></script>
-</head>
-<body>
-  <div align="center">
-    <br />
-    <h2>List of Courses</h2>
-    <table class="table table-striped" border="1px" style="width:600px; line-height:40px;">
-      <thead>
-        <tr>
-          <th><input type="checkbox" id="checkAll"></th>
-          <th>Course Code</th>
-          <th>Course Number</th>
-          <th>Title of Course</th>
-          <th>Number of Units</th>
-        </tr>
-      </thead>
-      <tbody align="center">
-        <?php
-          while ($row = mysqli_fetch_array($query)) {?>
-            <tr>
-              <td><input class="checkbox" type="checkbox" name="id[]" id="<?php echo $row['COURSE_CODE']?>"></td>
-              <td><?php echo $row['COURSE_CODE'] ?></td>
-              <td><?php echo strtoupper($row['COURSE_NUM']) ?></td>
-              <td><?php echo ucwords($row['COURSE_TITLE']) ?></td>
-              <td><?php echo $row['COURSE_UNITS'] ?></td>
-            </tr>
-          <?php } ?>
-      </tbody>
-    </table>
-    <br/>
-    <button type="button" class="btn btn-danger" id="delete">Delete Selected</button>
-  </div>
-
   <script>
     $(document).ready(function(){
       $('#checkAll').click(function(){
@@ -99,9 +69,66 @@ include ('tokencheck.php');
       }
     });
   </script>
+</head>
+<body>
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">WebSiteName</a>
+      </div>
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="home.php">Home</a></li>
+        <li><a href="regcourse.php">Register Additional Class</a></li>
+        <li><a href="addcourse.php">Add Class to Checklist</a></li>
+        <li><a href="viewcourse.php">View List of Courses</a></li>
+        <li><a href="ongoingcourse.php">View List of On-Going Courses</a></li>
+        <li><a href="passedcourse.php">View List of Passed Courses</a></li>
+        <li><a href="failedcourse.php">View List of Failed Coursess</a></li>
+      </ul>
 
+      <ul class="nav navbar-nav mr-auto">
+        <li><a href="logout.php">Log-out</a></li>
+      </ul>
+    </div>
+  </nav>
+  <div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+      <h2>List of Courses</h2>
+      <table class="table table-striped main-table" >
+        <thead>
+          <tr>
+            <th><input type="checkbox" id="checkAll"> <span style="margin-left: 3px">Select All</span></th>
+            <th>Course Code</th>
+            <th>Course Number</th>
+            <th>Title of Course</th>
+            <th>Number of Units</th>
+          </tr>
+        </thead>
+        <tbody>
+          <?php
+            while ($row = mysqli_fetch_array($query)) {?>
+              <tr>
+                <td><input class="checkbox" type="checkbox" name="id[]" id="<?php echo $row['COURSE_CODE']?>"></td>
+                <td><?php echo $row['COURSE_CODE'] ?></td>
+                <td><?php echo strtoupper($row['COURSE_NUM']) ?></td>
+                <td><?php echo ucwords($row['COURSE_TITLE']) ?></td>
+                <td><?php echo $row['COURSE_UNITS'] ?></td>
+              </tr>
+            <?php } ?>
+        </tbody>
+      </table>
+      <button type="button" class="btn btn-danger" id="delete">Delete Selected</button>
+    </div>
+    <div class="col-md-3"></div>
 
-  <br/><br/><a href="home.php">Home</a>
+  </div>  
+    
+    
+    <br/>
+    
+
+  
 
 </body>
 </html>
